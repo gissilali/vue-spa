@@ -1,6 +1,6 @@
 <template>
 	<div class="list">
-		<todo v-for="(todo, index) in todos" v-bind:todo="todo" v-bind:index="index"></todo>
+		<todo v-for="(todo, index) in todos" v-bind:todo="todo" v-bind:key="todo.id"></todo>
 	</div>
 </template>
 <script>

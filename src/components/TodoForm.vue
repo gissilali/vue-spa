@@ -5,7 +5,8 @@
 				<button type="submit" class="btn btn-success fa fa-edit" @click="showForm"></button>
 		</div>
 		<transition name="slide">
-			<form action="index.html" v-if=isCreating @submit.prevent="submitToDo">
+			<div v-if=isCreating>
+			<form action="index.html"  @submit.prevent="submitToDo">
 			<div class="alert-dismissible alert alert-danger" v-if=error>
 				Error in your form
 			</div>
@@ -18,7 +19,8 @@
 			<div class="form-group">
 				<button type="submit" class="btn btn-success fa fa-plus"></button>
 			</div>
-		</form>
+			</form>
+			</div>
 		</transition>
 	</div>
 </template>
@@ -51,11 +53,18 @@ export default{
       this.error = false
     },
     createTodo () {
+      console.log(this.todos)
       this.todos.push({
         title: this.titleText,
         description: this.descriptionText,
         done: false
       })
+      this.todos.reverse()
+      this.clearForm()
+    },
+    clearForm () {
+      this.titleText = ''
+      this.descriptionText = ''
     }
   }
 }

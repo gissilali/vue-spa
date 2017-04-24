@@ -1,5 +1,6 @@
 <template>
 	<div class="card form-group">
+			<span class="label">{{ todo.id }}</span>
 			<div class="card-header">{{ todo.title }}</div>
 			<div class="card-block">{{ todo.description }}</div>
 			<div class="card-footer">
